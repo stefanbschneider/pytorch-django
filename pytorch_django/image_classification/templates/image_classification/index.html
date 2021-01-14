@@ -5,10 +5,18 @@
     <title>PyTorch Image Classification</title>
 </head>
 <body>
+
+{% load static %}
+
+<img src="{% static 'image_classification/pytorch_logo.png' %}" alt="PyTorch logo">
+<p>PyTorch logo from: https://commons.wikimedia.org/wiki/File:Pytorch_logo.png#/media/File:Pytorch_logo.png</p>
+<br>
+
 Upload your image here and see
 if a trained PyTorch model can recognize it.
 
 {% if image is not None %}
+    <p>Image: {{ image }}</p>
     <img src="{{ image }}" alt="uploaded image">
 {% else %}
     <p>No image uploaded yet.</p>

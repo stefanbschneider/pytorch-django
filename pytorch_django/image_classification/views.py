@@ -12,6 +12,7 @@ def index(request, image=None):
         if form.is_valid():
             print("Valid!")
             image = form.cleaned_data['image']
+            form.save()
             return HttpResponseRedirect(reverse('image_classification:index', kwargs={'image': image}))
 
     else:
