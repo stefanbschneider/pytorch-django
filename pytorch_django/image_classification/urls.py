@@ -9,5 +9,7 @@ from . import views
 app_name = 'image_classification'
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='image_classification/index.html')),
+    # two paths: with or without given image
+    path('', views.index, name='index'),
+    path('/<image>', views.index, name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
