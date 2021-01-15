@@ -1,2 +1,2 @@
 release: python manage.py migrate --no-input
-web: gunicorn project.wsgi
+web: gunicorn pytorch_django.wsgi
