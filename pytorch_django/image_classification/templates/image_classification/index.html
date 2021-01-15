@@ -15,9 +15,9 @@
 Upload your image here and see
 if a trained PyTorch model can recognize it.
 
-{% if image is not None %}
-    <p>Image: {{ image }}</p>
-    <img src="{{ image }}" alt="uploaded image">
+{% if image_uri is not None %}
+    <img src="{{ image_uri }}" alt="Uploaded image" style="max-width: 500px; max-height: 500px;">
+    <br>
 {% else %}
     <p>No image uploaded yet.</p>
 {% endif %}
