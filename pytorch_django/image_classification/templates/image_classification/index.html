@@ -12,14 +12,14 @@
 
 {% load static %}
 
-<img src="{% static 'image_classification/pytorch_logo.png' %}" alt="PyTorch logo">
+<img src="{% static 'image_classification/pytorch_logo.png' %}" class="img-fluid" alt="PyTorch logo">
 <p>PyTorch logo from: https://commons.wikimedia.org/wiki/File:Pytorch_logo.png#/media/File:Pytorch_logo.png</p>
 <br>
 
 <p>Upload your image here and see if a trained PyTorch model can recognize it.</p>
 
 {% if image_uri is not None %}
-    <img src="{{ image_uri }}" alt="Uploaded image" style="max-width: 500px; max-height: 500px;">
+    <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image" style="max-width: 500px; max-height: 500px;">
 {% else %}
     <p>No image uploaded yet.</p>
 {% endif %}
