@@ -6,14 +6,13 @@ from torchvision import models
 from torchvision import transforms
 from PIL import Image
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
 
 from .forms import ImageUploadForm
 
 
 # PyTorch-related code from: https://pytorch.org/tutorials/intermediate/flask_rest_api_tutorial.html
 # load pretrained DenseNet and go straight to evaluation mode for inference
+# load as global variable here, to avoid expensive reloads with each request
 model = models.densenet121(pretrained=True)
 model.eval()
 
@@ -61,7 +60,6 @@ def index(request):
 
             # get predicted label
             predicted_label = get_prediction(image_bytes)
-            print(predicted_label)
 
     else:
         form = ImageUploadForm()
