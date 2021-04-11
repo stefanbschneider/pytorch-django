@@ -64,7 +64,11 @@ def index(request):
             image_uri = 'data:%s;base64,%s' % ('image/jpeg', encoded_img)
 
             # get predicted label
-            predicted_label = get_prediction(image_bytes)
+            try:
+                predicted_label = get_prediction(image_bytes)
+            except RuntimeError as re:
+                print(re)
+                # predicted_label = "Prediction Error"
 
     else:
         form = ImageUploadForm()

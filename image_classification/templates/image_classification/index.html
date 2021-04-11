@@ -32,6 +32,10 @@
         <div class="alert alert-primary" role="alert">
             Predicted label: <b>{{ predicted_label }}</b>
         </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Prediction error. No label predicted.
+        </div>
     {% endif %}
 
     <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image"
@@ -40,17 +44,18 @@
 
 {# spinner inside the submit button when uploading and classifying an image #}
 {# from https://stackoverflow.com/a/54533740/2745116 #}
-<script>
-    $(document).ready(function() {
-        $("#btnUpload").click(function() {
-            // disable button
-            $(this).prop("disabled", true);
-            // add spinner to button
-            $(this).html(
-                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-            );
-        });
-    });
-</script>
+{# strange: works on Firefox but on Chrome, keeps spinning forever #}
+{#<script>#}
+{#    $(document).ready(function() {#}
+{#        $("#btnUpload").click(function() {#}
+{#            // disable button#}
+{#            $(this).prop("disabled", true);#}
+{#            // add spinner to button#}
+            {#$(this).html(#}
+            {#    `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`#}
+            {#);#}
+{#        });#}
+{#    });#}
+{#</script>#}
 </body>
 </html>
