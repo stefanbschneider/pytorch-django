@@ -7,6 +7,7 @@ As an example of how to integrate PyTorch with Django and deploy it on Heroku.
 * Live demo: [Heroku](https://pytorch-django.herokuapp.com/)
 * Corresponding blog post: [Using PyTorch Inside a Django App](https://stefanbschneider.github.io/blog/pytorch-django)
 
+![image classification demo](https://raw.githubusercontent.com/stefanbschneider/pytorch-django/main/docs/demo.gif)
 
 ## Setup
 
