@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PyTorch Image Classification</title>
 
 {#    Bootstrap 5 #}
@@ -13,8 +14,12 @@
 {% load static %}
 
 
-<h1>PyTorch Image Classification App</h1>
-<p>A pretrained PyTorch DenseNet model will try to classify the selected image according to ImageNet labels.</p>
+<h1>Image Classification App</h1>
+<p>A simple Django web app with a pretrained PyTorch DenseNet model will try to classify the selected image according to ImageNet labels. Uploaded images are not saved.</p>
+<p><small>Further information:
+    <a href="" target="_blank">Blog Post</a>,
+    <a href="https://github.com/stefanbschneider/pytorch-django" target="_blank">GitHub</a></small>
+</p>
 
 <form method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 50px;">
     {% csrf_token %}
@@ -23,14 +28,12 @@
 </form>
 
 {% if image_uri is not None %}
-    <figure class="figure">
-        <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image" style="max-width: 500px; max-height: 500px;">
-        <figcaption class="figure-caption">Figure selected for classification.</figcaption>
-    </figure>
+    <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image"
+         style="max-width: min(500px, 100%); height: auto; margin-bottom: 50px;">
 
     {% if predicted_label is not None %}
         <div class="alert alert-primary" role="alert">
-            Predicted label: {{ predicted_label }}
+            Predicted label: <b>{{ predicted_label }}</b>
         </div>
     {% endif %}
 {% endif %}
