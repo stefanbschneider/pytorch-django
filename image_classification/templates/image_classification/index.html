@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PyTorch Image Classification</title>
+
+{#    Bootstrap 5 #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+<body>
+
+{% load static %}
+
+{#<img src="{% static 'image_classification/pytorch_logo.png' %}" class="img-fluid" alt="PyTorch logo">#}
+{#<p>PyTorch logo from: https://commons.wikimedia.org/wiki/File:Pytorch_logo.png#/media/File:Pytorch_logo.png</p>#}
+{#<br>#}
+
+<div class="container">
+{#    <figure class="figure" style="margin-bottom: 50px;">#}
+{#      <img src="{% static 'image_classification/pytorch_logo.png' %}" class="figure-img img-fluid rounded"#}
+{#           alt="PyTorch logo" width="300">#}
+{#      <figcaption class="figure-caption">PyTorch Logo from Wikipedia. CC-BY-SA-4.0 license.</figcaption>#}
+{#    </figure>#}
+
+    <h1>PyTorch Image Classification App</h1>
+    <p>A pretrained PyTorch DenseNet model will try to classify the selected image according to ImageNet labels.</p>
+
+    <form method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 50px;">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    {% if image_uri is not None %}
+        <figure class="figure">
+            <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image" style="max-width: 500px; max-height: 500px;">
+            <figcaption class="figure-caption">Figure selected for classification.</figcaption>
+        </figure>
+
+        {% if predicted_label is not None %}
+            <div class="alert alert-primary" role="alert">
+                Predicted label: {{ predicted_label }}
+            </div>
+        {% endif %}
+    {% endif %}
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
