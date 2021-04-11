@@ -1,11 +1,14 @@
 import base64
 import io
 import json
+import os
 
 from torchvision import models
 from torchvision import transforms
 from PIL import Image
 from django.shortcuts import render
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.conf import settings
 
 from .forms import ImageUploadForm
 
@@ -17,7 +20,11 @@ model = models.densenet121(pretrained=True)
 model.eval()
 
 # load mapping of ImageNet index to human-readable label
-imagenet_mapping = json.load(open("static/imagenet_class_index.json"))
+# run "python manage.py collectstatic" first!
+json_path = os.path.join(settings.STATICFILES_DIRS[0], "imagenet_class_index.json")
+# json_path = staticfiles_storage.url("imagenet_class_index.json")
+imagenet_mapping = json.load(open(json_path))
+# imagenet_mapping = json.load(open("static/imagenet_class_index.json"))
 
 
 def transform_image(image_bytes):
