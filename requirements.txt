@@ -4,5 +4,5 @@ gunicorn>=20.0.4
 django-heroku>=0.3.1
 # cpu version of torch and torchvision for heroku to reduce slug size
 # https://stackoverflow.com/a/59122860/2745116
-https://download.pytorch.org/whl/cpu/torch-1.8.1-cp38-cp38-manylinux2014_aarch64.whl
-https://download.pytorch.org/whl/cpu/torchvision-0.9.1%2Bcpu-cp38-cp38-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torch-1.8.1-cp39-cp39-manylinux2014_aarch64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.9.1-cp39-cp39-manylinux2014_aarch64.whl
