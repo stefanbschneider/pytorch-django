@@ -1,5 +1,7 @@
-django
-whitenoise
-gunicorn
-django-heroku
-torchvision
+-f https://download.pytorch.org/whl/torch_stable.html
+django>=3.2
+whitenoise>=5.2.0
+gunicorn>=20.0.4
+django-heroku>=0.3.1
+torch>=1.7.1+cpu
+torchvision>=0.2+cpu
