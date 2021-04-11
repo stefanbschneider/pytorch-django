@@ -2,4 +2,3 @@ django
 whitenoise
 gunicorn
 django-heroku
-torchvision
